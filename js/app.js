@@ -40,12 +40,14 @@ function Images(name) {
   this.vote = 0;
   this.view = 0;
   Images.all.push(this);
+
+
+  settingItem();
 }
+
 Images.all = [];
 
 
-
-//   console.log(Images.all);
 
 
 // sumaya
@@ -195,8 +197,28 @@ function chartRender() {
         data: views
       }]
     },
-  
+
     // Configuration options go here
     options: {}
   });
 }
+
+// localstorage
+function settingItem() {
+  let data = JSON.stringify(Images.all);
+  localStorage.setItem('Images', data);
+}
+
+function gettingItem() {
+  let stringObj = localStorage.getItem('votes');
+
+  let normalObj = JSON.parse(stringObj);
+
+  if (normalObj !== null) {
+
+    Images.all = normalObj;
+  }
+  render();
+}
+
+gettingItem();
