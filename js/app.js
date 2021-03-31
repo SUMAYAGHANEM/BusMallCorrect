@@ -42,7 +42,7 @@ function Images(name) {
   Images.all.push(this);
 
 
-  settingItem();
+  
 }
 
 Images.all = [];
@@ -167,6 +167,7 @@ function funn ()
     list.appendChild(li);
     li.textContent = `the name is: ${imagesNames[i]},the Votes are: ${Images.all[i].vote},and the Views are: ${Images.all[i].view}`;
     chartRender();
+    settingItem();
   }
 }
 
